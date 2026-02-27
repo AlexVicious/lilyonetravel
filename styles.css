@@ -1,0 +1,174 @@
+/* ================================ */
+/* PALETA */
+/* ================================ */
+
+:root {
+    --naranja: #F08F00;
+    --rosa: #EB8EAB;
+    --teal-intenso: #3E8F94;
+    --blanco: #F2EDE7;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    background: var(--blanco);
+    font-family: 'Segoe UI', sans-serif;
+    overflow-x: hidden;
+}
+
+/* ================================ */
+/* FONDO ANIMADO */
+/* ================================ */
+
+.background {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+    opacity: 0.13;
+    font-size: 55px;
+    font-weight: 600;
+    color: var(--teal-intenso);
+    pointer-events: none;
+}
+
+.scroll-row {
+    white-space: nowrap;
+    margin: 35px 0;
+}
+
+.left {
+    animation: moveLeft 45s linear infinite;
+}
+
+.right {
+    animation: moveRight 45s linear infinite;
+}
+
+@keyframes moveLeft {
+    from { transform: translateX(0); }
+    to { transform: translateX(-50%); }
+}
+
+@keyframes moveRight {
+    from { transform: translateX(-50%); }
+    to { transform: translateX(0); }
+}
+
+/* ================================ */
+/* CONTENIDO PRINCIPAL */
+/* ================================ */
+
+.content {
+    position: relative;
+    z-index: 2;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+
+    /* Mantiene el ajuste que hicimos antes */
+    transform: translateY(-110px);
+}
+
+.logo {
+    width: 750px;
+    max-width: 90%;
+    margin-bottom: -20px;
+}
+
+h1 {
+    font-size: 70px;
+    font-weight: 700;
+    margin: 0;
+    color: black;
+    letter-spacing: 2px;
+    position: relative;
+    top: -15px;
+}
+
+.coming-title {
+    font-size: 26px;
+    color: var(--rosa);
+    margin-top: 25px;
+}
+
+/* ================================ */
+/* FOOTER */
+/* ================================ */
+
+footer {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    background: linear-gradient(90deg, var(--naranja), var(--rosa));
+    padding: 15px 0;
+    text-align: center;
+    z-index: 3;
+}
+
+.footer-content p {
+    margin: 5px;
+    color: white;
+    font-weight: 500;
+}
+
+.social-icons img {
+    width: 30px;
+    margin: 10px;
+}
+
+.email a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+/* ================================= */
+/* 🔵 VERSIÓN MÓVIL */
+/* ================================= */
+
+@media (max-width: 768px) {
+
+    .background {
+        font-size: 22px;   /* texto fondo más pequeño */
+        opacity: 0.08;     /* más sutil en móvil */
+    }
+
+    .content {
+        transform: translateY(-40px); /* menos desplazamiento en móvil */
+        padding: 20px;
+    }
+
+    .logo {
+        width: 90%;
+        max-width: 350px; /* tamaño ideal móvil */
+    }
+
+    h1 {
+        font-size: 32px;
+        letter-spacing: 1px;
+        top: -5px;
+    }
+
+    .coming-title {
+        font-size: 18px;
+        margin-top: 15px;
+    }
+
+    footer {
+        padding: 12px 0;
+    }
+
+    .social-icons img {
+        width: 26px;
+        margin: 8px;
+    }
+
+    .email a {
+        font-size: 14px;
+    }
+}
