@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cotización Mágica | LilyOneTravel</title>
+
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Inter:wght@400;600&display=swap" rel="stylesheet">
+  
+  <link rel="stylesheet" href="styles.css">
+
+  <style>
+    /* Estilos adicionales para mantener la armonía del diseño original */
+    body {
+      background-color: #fdfbf7; /* Un tono crema suave acorde al estilo elegante */
+      padding: 20px;
+    }
+
+    .form-container {
+      max-width: 800px;
+      margin: 40px auto;
+      padding: 40px;
+      background: #ffffff;
+      border-radius: 15px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+      border: 1px solid #eee;
+    }
+
+    .welcome-header {
+      text-align: center;
+      margin-bottom: 40px;
+    }
+
+    .welcome-header h1 {
+      font-family: 'Playfair Display', serif;
+      color: #d4a373; /* Tu color dorado original */
+      font-size: 2.5rem;
+      margin-bottom: 20px;
+    }
+
+    .welcome-header p {
+      color: #555;
+      font-size: 1.1rem;
+      line-height: 1.6;
+    }
+
+    .section-title {
+      font-family: 'Playfair Display', serif;
+      color: #d4a373;
+      border-bottom: 2px solid #f0e6d2;
+      margin: 35px 0 20px;
+      padding-bottom: 10px;
+      font-size: 1.5rem;
+    }
+
+    .field {
+      margin-bottom: 20px;
+    }
+
+    label {
+      display: block;
+      font-weight: 600;
+      margin-bottom: 8px;
+      color: #333;
+      font-size: 0.9rem;
+    }
+
+    input, select, textarea {
+      width: 100%;
+      padding: 12px;
+      border: 1px solid #ddd;
+      border-radius: 8px;
+      font-family: 'Inter', sans-serif;
+      font-size: 1rem;
+      transition: border-color 0.3s;
+    }
+
+    input:focus {
+      border-color: #d4a373;
+      outline: none;
+    }
+
+    .currency-group {
+      display: flex;
+      gap: 10px;
+    }
+
+    .currency-group select {
+      width: 100px;
+      background-color: #f9f9f9;
+    }
+
+    /* Pie de página del formulario (Información Importante) */
+    .footer-info {
+      background: #faf7f2;
+      padding: 30px;
+      border-radius: 12px;
+      margin-top: 40px;
+      border: 1px solid #f0e6d2;
+    }
+
+    .footer-info h3 {
+      font-family: 'Playfair Display', serif;
+      color: #d4a373;
+      margin-top: 0;
+    }
+
+    .footer-info ul {
+      list-style: none;
+      padding: 0;
+    }
+
+    .footer-info li {
+      margin-bottom: 12px;
+      font-size: 0.95rem;
+      color: #555;
+      display: flex;
+      align-items: flex-start;
+    }
+
+    .footer-info li::before {
+      content: "✨";
+      margin-right: 10px;
+    }
+
+    /* Reutilizando tu clase btn-primary del index */
+    .btn-submit {
+      width: 100%;
+      margin-top: 20px;
+      cursor: pointer;
+    }
+
+    @media (max-width: 600px) {
+      .form-container { padding: 20px; }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="form-container">
+    <div class="welcome-header">
+      <h1>✨ Tu viaje de ensueño ✨</h1>
+      <p>
+        Hola, soy <strong>Lily Solorzano</strong> tu agente de viajes personalizado, juntos crearemos tu viaje de ensueño, sin complicaciones ni preocupaciones. Déjame ayudarte a que disfrutes al máximo.
+      </p>
+      <p><strong>Mi servicio es GRATIS para ti.</strong> Llena este formulario para recibir tu cotización personalizada.</p>
+    </div>
+
+    <form action="https://formspree.io/f/xaqdkpra" method="POST">
+      <input type="hidden" name="_next" value="gracias.html">
+      <input type="hidden" name="_subject" value="Nueva Cotización de LilyOneTravel">
+
+      <h2 class="section-title">Datos del Viajero</h2>
+      
+      <div class="field">
+        <label>Nombre Completo *</label>
+        <input type="text" name="nombre" required>
+      </div>
+
+      <div class="field">
+        <label>Correo electrónico *</label>
+        <input type="email" name="email" required>
+      </div>
+
+      <div class="field">
+        <label>Ciudad y País de Residencia *</label>
+        <input type="text" name="residencia" required>
+      </div>
+
+      <div class="field">
+        <label>Teléfono de contacto *</label>
+        <input type="tel" name="whatsapp" pattern="[0-9]+" title="Por favor, ingresa solo números" required>
+      </div>
+
+      <div class="field">
+        <label>¿Cuentas con VISA y Pasaporte vigente? *</label>
+        <select name="documentacion" required>
+          <option value="SI">SI</option>
+          <option value="NO">NO</option>
+          <option value="CITA_AGENDADA">No, pero ya tengo cita agendada</option>
+          <option value="NO_APLICA">No aplica para mi país</option>
+        </select>
+      </div>
+
+      <h2 class="section-title">Detalles de la Aventura</h2>
+
+      <div style="display: flex; gap: 20px;">
+        <div class="field" style="flex: 1;">
+          <label>¿Cuántos adultos? *</label>
+          <input type="number" name="adultos" min="1" required>
+        </div>
+        <div class="field" style="flex: 1;">
+          <label>¿Cuántos menores? *</label>
+          <input type="number" name="menores" min="0" required>
+        </div>
+      </div>
+
+      <div class="field">
+        <label>¿Cuál es la edad de los MENORES DE EDAD? *</label>
+        <input type="text" name="edades_menores" placeholder="Ej. 5 y 8 años" required>
+      </div>
+
+      <div class="field">
+        <label>Presupuesto Estimado *</label>
+        <div class="currency-group">
+          <select name="divisa">
+            <option value="MXN">MXN</option>
+            <option value="USD">USD</option>
+          </select>
+          <input type="number" name="monto_presupuesto" placeholder="Monto" required>
+        </div>
+      </div>
+
+      <div style="display: flex; gap: 20px;">
+        <div class="field" style="flex: 1;">
+          <label>Fecha Inicio *</label>
+          <input type="date" name="fecha_inicio" id="start_date" required>
+        </div>
+        <div class="field" style="flex: 1;">
+          <label>Fecha Regreso *</label>
+          <input type="date" name="fecha_regreso" id="end_date" required>
+        </div>
+      </div>
+
+      <div class="field">
+        <label>¿Cuál es tu destino? *</label>
+        <select name="destino" required>
+          <option value="Disney">Disney</option>
+          <option value="Universal">Universal Studios</option>
+          <option value="Cruceros">Cruceros</option>
+          <option value="Playa">Playa</option>
+          <option value="Ambos">Ambos (Disney/Universal)</option>
+        </select>
+      </div>
+
+      <div class="field">
+        <label>Cuentanos más de tu viaje </label>
+        <textarea name="info_extra" rows="4" placeholder="¿Tienes algún hotel en mente o motivo especial? Aniversario, cumpleaños, etc.."></textarea>
+      </div>
+
+      <button type="submit" class="btn-primary large btn-submit">Enviar mi solicitud mágica</button>
+
+    </form>
+
+    <div class="footer-info">
+      <h3>📌 IMPORTANTE</h3>
+      <ul>
+        <li>Obtén tu Cotización en un lapso máximo de 72 horas.</li>
+        <li>Si no tienes respuesta escribe a:   <strong> lilysolorzano@lilyonetravel.com</strong></li>
+        <li>Los precios son <strong> OFICIALES</strong>.</li>
+        <li>Mi asesoría y acompañamiento <strong> NO tiene costo para tí</strong>.</li>
+        <li>Los Vuelos son por tu cuenta.</li>
+        <li>Indispensable Visa y Pasaporte vigentes para viajes a EE.UU.</li>
+        <li>Opciones de apartado y pagos diferidos.</li>
+      </ul>
+    </div>
+  </div>
+
+  <script>
+    // Script para bloquear fechas pasadas
+    const today = new Date().toISOString().split('T')[0];
+    const startDateInput = document.getElementById('start_date');
+    const endDateInput = document.getElementById('end_date');
+
+    startDateInput.min = today;
+    endDateInput.min = today;
+
+    // Cuando se cambie la fecha de inicio, la fecha de regreso no puede ser anterior
+    startDateInput.addEventListener('change', () => {
+      endDateInput.min = startDateInput.value;
+    });
+  </script>
+
+</body>
+</html>
